@@ -99,6 +99,18 @@ public class CarView extends JFrame {
 		    carC.gas(amount);
 		});
 
+		brakeButton.addActionListener(e -> {
+			carC.brake(amount);
+		});
+
+		startButton.addActionListener(e -> {
+			carC.startAllCars();
+		});
+
+		stopButton.addActionListener(e -> {
+			carC.stopAllCars();
+		});
+
 		leftButton.addActionListener(e -> {
 			carC.turnLeft();
 		});

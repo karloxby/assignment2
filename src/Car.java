@@ -93,6 +93,10 @@ public abstract class Car implements Movable {
 	public double getCurrentY() {
 		return y;
 	}
+	public void setPosition(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
 
 	public String getCurrentDirection() {
 		return direction;
@@ -121,7 +125,10 @@ public abstract class Car implements Movable {
 			direction = "north";
 		}
 	}
-
+	public void reverseDirection(){
+		turnRight();
+		turnRight();
+	}
 	public void move() {
 		if (direction.equals("north")) {
 			y = y + currentSpeed;

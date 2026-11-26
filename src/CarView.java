@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
  * It initializes with being center on the screen and attaching its controller in its state.
  * It communicates with the Controller by calling its methods when an action fires in
  * its components.
- * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
 public class CarView extends JFrame {

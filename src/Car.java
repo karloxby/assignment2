@@ -17,7 +17,7 @@ public abstract class Car implements Movable {
 		this.nrDoors = nrDoors;
 		this.color = color;
 		this.modelName = modelName;
-		this.direction = "north";
+		this.direction = "up";
 	}
 
 	public double getEnginePower() {
@@ -103,42 +103,59 @@ public abstract class Car implements Movable {
 	}
 
 	public void turnLeft() {
-		if (direction.equals("north")) {
-			direction = "west";
-		} else if (direction.equals("west")) {
-			direction = "south";
-		} else if (direction.equals("south")) {
-			direction = "east";
-		} else {
-			direction = "north";
+		switch (direction) {
+			case "up":
+				direction = "left";
+				break;
+			case "left":
+				direction = "down";
+				break;
+			case "down":
+				direction = "right";
+				break;
+			case "right":
+				direction = "up";
+				break;
 		}
 	}
 
 	public void turnRight() {
-		if (direction.equals("north")) {
-			direction = "east";
-		} else if (direction.equals("east")) {
-			direction = "south";
-		} else if (direction.equals("south")) {
-			direction = "west";
-		} else {
-			direction = "north";
+		switch (direction) {
+			case "up":
+				direction = "right";
+				break;
+			case "right":
+				direction = "down";
+				break;
+			case "down":
+				direction = "left";
+				break;
+			case "left":
+				direction = "up";
+				break;
 		}
 	}
+
+	public void move() {
+		switch (direction) {
+			case "up":
+				y = y - currentSpeed;
+				break;
+			case "right":
+				x = x + currentSpeed;
+				break;
+			case "down":
+				y = y + currentSpeed;
+				break;
+			case "left":
+				x = x - currentSpeed;
+				break;
+		}
+	}
+
 	public void reverseDirection(){
 		turnRight();
 		turnRight();
-	}
-	public void move() {
-		if (direction.equals("north")) {
-			y = y + currentSpeed;
-		} else if (direction.equals("east")) {
-			x = x + currentSpeed;
-		} else if (direction.equals("south")) {
-			y = y - currentSpeed;
-		} else {
-			x = x - currentSpeed;
-		}
 	}
 }
 

@@ -33,28 +33,27 @@ public class CarController {
 		    for (Car car : cars) {
 			car.move();
 
-				// limits
-				int maxX = frame.drawPanel.getWidth() - 100;
-				int maxY = frame.drawPanel.getHeight() - 60;
+			// limits
+			int maxX = frame.drawPanel.getWidth() - 100;
+			int maxY = frame.drawPanel.getHeight() - 60;
 
-				// collision
-				if (car.getCurrentX() > maxX){
-					car.setPosition(maxX, car.getCurrentY());
-					car.reverseDirection();
+			// collision
+			if (car.getCurrentX() > maxX){
+				car.setPosition(maxX, car.getCurrentY());
+				car.reverseDirection();
 
-				} else if (car.getCurrentX() < 0){
-					car.setPosition(0, car.getCurrentY());
-					car.reverseDirection();
-				}
+			} else if (car.getCurrentX() < 0){
+				car.setPosition(0, car.getCurrentY());
+				car.reverseDirection();
+			}
 
-				if (car.getCurrentY() > maxY){
-					car.setPosition(car.getCurrentX(),maxY);
-					car.reverseDirection();
-				} else if (car.getCurrentY() < 0){
-					car.setPosition(car.getCurrentX(), 0);
-					car.reverseDirection();
-				}
-
+			if (car.getCurrentY() > maxY){
+				car.setPosition(car.getCurrentX(),maxY);
+				car.reverseDirection();
+			} else if (car.getCurrentY() < 0){
+				car.setPosition(car.getCurrentX(), 0);
+				car.reverseDirection();
+			}
 
 			// repaint() calls the paintComponent method of the panel
 			frame.drawPanel.revalidate();
@@ -69,7 +68,8 @@ public class CarController {
 		    car.gas(gas);
 		}
 	}
-    void turboOn(){
+
+	void turboOn(){
 		for (Car car: cars){
 			if (car instanceof Saab95 saab){
 				saab.setTurboOn();
@@ -77,6 +77,7 @@ public class CarController {
 
 		}
 	}
+
  	void turboOff(){
 		for (Car car: cars){
 			if (car instanceof Saab95 saab){
@@ -84,6 +85,7 @@ public class CarController {
 			}
 		}
 	}
+
 	void brake(int amount) {
 		double brake = ((double) amount) / 100;
 		for (Car car : cars) {
